@@ -8,7 +8,7 @@ import {
 } from "react-router";
 
 import type { Route } from "./+types/root";
-import "./app.css";
+import { Box } from "@mui/material";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -32,12 +32,21 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
+      <Box sx={
+        {
+          backgroundImage: 'url("/home-bg.jpg")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          width: "100%",
+          minHeight: "100vh",
+          margin: 0,
+        }
+      } >
         {children}
         <ScrollRestoration />
         <Scripts />
-      </body>
-    </html>
+      </Box>
+    </html >
   );
 }
 

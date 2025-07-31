@@ -1,13 +1,20 @@
+import { Box } from "@mui/material";
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+import Topbar from "~/src/components/topbar/topbar";
 
-export function meta({}: Route.MetaArgs) {
+export function meta({ }: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Saleh Amin" },
+    { name: "description", content: "Welcome to Rezomeh Saleh" },
   ];
 }
 
 export default function Home() {
-  return <Welcome />;
+  return (
+    < Box sx={{
+    
+    }} >
+        <Topbar/>
+    </ Box >
+  );
 }
