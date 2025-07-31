@@ -11,6 +11,15 @@ import type { Route } from "./+types/root";
 import { Box } from "@mui/material";
 import "./app.css"
 
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+
+const theme = createTheme({
+  typography: {
+    fontFamily: 'Vazir, sans-serif',
+  },
+});
+
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
@@ -33,21 +42,24 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <Box sx={
-        {
-          backgroundImage: 'url("/home-bg.jpg")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          width: "100%",
-          minHeight: "100vh",
-          margin: 0,
-          padding: 0 ,
-        }
-      } >
-        {children}
-        <ScrollRestoration />
-        <Scripts />
-      </Box>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Box sx={
+          {
+            backgroundImage: 'url("/home-bg.jpg")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            width: "100%",
+            minHeight: "100vh",
+            margin: 0,
+            padding: 0,
+          }
+        } >
+          {children}
+          <ScrollRestoration />
+          <Scripts />
+        </Box>
+      </ThemeProvider>
     </html >
   );
 }
