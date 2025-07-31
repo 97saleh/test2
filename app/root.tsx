@@ -9,6 +9,7 @@ import {
 
 import type { Route } from "./+types/root";
 import { Box } from "@mui/material";
+import "./app.css"
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -40,6 +41,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           width: "100%",
           minHeight: "100vh",
           margin: 0,
+          padding: 0 ,
         }
       } >
         {children}
